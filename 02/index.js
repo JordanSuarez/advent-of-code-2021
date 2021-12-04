@@ -1,4 +1,4 @@
-import fs from 'fs'
+const fs = require('fs')
 
 const data = fs.readFileSync('./data.txt', 'utf-8')
     .split(/\n/)
@@ -40,5 +40,5 @@ const secondPart = () => {
     return horizontal * depth
 }
 
-console.log(firstPart())
-console.log(secondPart())
+console.log('First part result =', firstPart())
+console.log('Second part result =', secondPart())

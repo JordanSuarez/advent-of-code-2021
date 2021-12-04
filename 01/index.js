@@ -1,4 +1,8 @@
-import puzzleInputs from './puzzle-inputs.js'
+const fs = require('fs')
+
+const data = fs.readFileSync('./data.txt', 'utf-8')
+    .split(/\n/)
+    .map(v => parseInt(v))
 
 const getIncreasedInput = (inputs) => {
     let increasedInput = 0
@@ -13,10 +17,10 @@ const getIncreasedInput = (inputs) => {
 }
 
 const measurements = () => {
-    return puzzleInputs.map((input, index) =>
-        input + puzzleInputs[index + 1] + puzzleInputs[index + 2]
+    return data.map((input, index) =>
+        input + data[index + 1] + data[index + 2]
     )
 }
 
-console.log('First part result =', getIncreasedInput(puzzleInputs))
+console.log('First part result =', getIncreasedInput(data))
 console.log('Second part result =', getIncreasedInput(measurements()))

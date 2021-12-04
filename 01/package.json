@@ -1,8 +1,0 @@
-{
-  "name": "aoc_2021_01",
-  "version": "1.0.0",
-  "main": "index.js",
-  "author": "Jordan Suarez",
-  "license": "MIT",
-  "type": "module"
-}
