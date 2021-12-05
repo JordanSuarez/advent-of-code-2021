@@ -25,7 +25,7 @@ const firstPart = () => {
     return parseInt(gamma, 2) * parseInt(epsilon, 2)
 }
 
-const tt = (arr, a, b) => {
+const binary = (arr, a, b) => {
     for (let j = 0; j < data[0].length; j++) {
         if (arr.length === 1) {
             break
@@ -58,12 +58,12 @@ const tt = (arr, a, b) => {
         }
     }
 
-    return arr
+    return arr.join('')
 }
 
 const secondPart = () => {
-    const oxygen = tt(data, '1', '0').join('')
-    const co2 = tt(data, '0', '1').join('')
+    const oxygen = binary(data, '1', '0')
+    const co2 = binary(data, '0', '1')
 
     return parseInt(oxygen, 2) * parseInt(co2, 2)
 }
