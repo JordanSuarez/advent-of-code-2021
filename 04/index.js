@@ -59,7 +59,7 @@ const checkColumnIsWon = (grid) => {
     return false
 }
 
-const play = () => {
+const getFirstWIn = (grids) => {
     for (let number of numbers) {
         for (let grid of grids) {
             replaceNumber(grid, number)
@@ -74,6 +74,28 @@ const play = () => {
     }
 }
 
+const getLastWin = (grids) => {
+    let gridsWon = []
+
+    for (let number of numbers) {
+        for (let i = 0; i < grids.length; i++) {
+            if (!gridsWon.find(t => t.grid === grids[i])) {
+                replaceNumber(grids[i], number)
+            }
+
+            if ((checkLineIsWon(grids[i]) || checkColumnIsWon(grids[i])) && !gridsWon.find(t => t.grid === grids[i])) {
+                gridsWon.push({
+                    i,
+                    grid: grids[i],
+                    number,
+                })
+            }
+        }
+    }
+
+    return gridsWon
+}
+
 const sum = (grid) => {
     let result = 0
 
@@ -84,12 +106,18 @@ const sum = (grid) => {
     return result
 }
 
-const result = () => {
-    const { grid, number } = play()
+const firstPart = () => {
+    const { grid, number } = getFirstWIn(grids)
 
     return sum(grid) * number
 }
 
-console.log(result())
+const secondPart = () => {
+    const gds = getLastWin(grids)
+    const lastWinGrid = gds[gds.length - 1]
 
+    return sum(lastWinGrid.grid) * lastWinGrid.number
+}
 
+console.log('First part result =', firstPart())
+console.log('Second part result =', secondPart())
