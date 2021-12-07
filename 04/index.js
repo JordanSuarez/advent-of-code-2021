@@ -93,7 +93,7 @@ const getLastWin = (grids) => {
         }
     }
 
-    return gridsWon
+    return gridsWon[gridsWon.length - 1]
 }
 
 const sum = (grid) => {
@@ -106,18 +106,15 @@ const sum = (grid) => {
     return result
 }
 
-const firstPart = () => {
-    const { grid, number } = getFirstWIn(grids)
+const calcResult = ({grid, number}) => sum(grid) * number
 
-    return sum(grid) * number
+const result = () => {
+    const firstWin = calcResult(getFirstWIn(grids))
+    const lastWin = calcResult(getLastWin(grids))
+
+    console.log('First part result =', firstWin)
+    console.log('Second part result =', lastWin)
 }
 
-const secondPart = () => {
-    const gds = getLastWin(grids)
-    const lastWinGrid = gds[gds.length - 1]
+result()
 
-    return sum(lastWinGrid.grid) * lastWinGrid.number
-}
-
-console.log('First part result =', firstPart())
-console.log('Second part result =', secondPart())
