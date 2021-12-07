@@ -8,6 +8,17 @@ function firstCalcConsumption(position, step) {
     return Math.abs(position - step)
 }
 
+function secondCalcConsumption(position, step) {
+    const calc = Math.abs(position - step)
+
+    let result = 0
+    for (let i = 0; i <= calc; i++){
+        result += i
+    }
+
+    return result
+}
+
 function cheapestConsumption(sum) {
     const consumptions = []
 
@@ -25,3 +36,5 @@ function cheapestConsumption(sum) {
 }
 
 console.log('First part result =', cheapestConsumption(firstCalcConsumption))
+console.log('Second part result =', cheapestConsumption(secondCalcConsumption))
+
