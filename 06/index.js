@@ -40,28 +40,28 @@ function lifeTimer() {
         timer[i] = 0
     }
 
+    for (let i = 0; i < data.length; i++) {
+        timer[data[i]] += 1
+    }
+
     return timer
 }
 
 function countFish(fish) {
-    const countZero = fish[0];
+    const countZero = fish['0'];
 
     for (let i = 0; i < 9; i++) {
         fish[i] = fish[i + 1];
     }
 
-    fish[6] += countZero;
-    fish[8] = countZero;
+    fish['6'] += countZero;
+    fish['8'] = countZero;
 
     return fish
 }
 
 function secondPart() {
     let timer = lifeTimer()
-
-    for (let i = 0; i < data.length; i++) {
-        timer[data[i]] += 1
-    }
 
     for (let i = 0; i < 256; i++) {
         timer = countFish(timer)
