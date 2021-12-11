@@ -30,9 +30,9 @@ function calcFirstResult(arr) {
 }
 
 function calcSecondResult(arr) {
-    const toto = arr.map(v => v.reduce((acc, curr) => acc * 5 + unclosedPoint[curr], 0)).sort((a, b) => a - b)
+    const result = arr.map(v => v.reduce((acc, curr) => acc * 5 + unclosedPoint[curr], 0)).sort((a, b) => a - b)
 
-    return toto[Math.floor(toto.length / 2)]
+    return result[Math.floor(result.length / 2)]
 }
 
 function findCorrupted(signs) {
